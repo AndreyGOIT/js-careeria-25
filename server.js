@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const employees = require('./data/employees.json');
+const fs = require('fs').promises;
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,18 @@ app.use(express.static(htmlPath));
 app.get('/api/employees', (req, res) => {
     res.send(employees);
 });
+
+//pinkodin lukeminen txt-tiedostosta palvelimelta ja lähettäminen selaimelle
+app.get('/api/getpin', async (req, res) => {
+    try {
+        const savedPin = await fs.readFile('pin.txt', 'utf8');
+        res.json({ pin: savedPin.trim() });
+    } catch (error) {
+        console.error('Error reading pin from file:', error);
+        res.status(500).json({ error: 'Error reading pin from file' }); // Ошибку тоже в JSON
+    }
+});
+//-----------------------------------------
 
 //palvelimen käynnistys
 const PORT = process.env.PORT || 3000;

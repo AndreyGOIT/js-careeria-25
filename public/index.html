@@ -25,7 +25,7 @@
     <header class="w3-top">
       <nav>
         <div
-          class="w3-row w3-padding w3-blue-grey top-nav"
+          class="w3-row w3-padding w3-blue-grey top-nav hidden"
           style="display: flex; justify-content: center; align-items: center"
         >
           <div class="w3-col s1">
@@ -81,9 +81,15 @@
         </div>
       </section>
 
-      <section class="w3-sand w3-grayscale">
+      <section class="w3-sand w3-grayscale ">
+        <center >
+          <div id="pin-div" class="w3-center w3-padding-24">
+            <input id="pin" placeholder="pin code" type="password"/>
+            <button onclick="checkPin()">LOGIN</button>
+          </div>
+        </center>
         <!-- About Container -->
-        <section class="w3-container w3-row w3-padding-24 about">
+        <section class="w3-container w3-row w3-padding-24 about hidden">
           <div class="w3-col l6 m6 s12 w3-padding img-width">
             <img
               src="images/slogan_kuva.png"
@@ -116,8 +122,8 @@
         </section>
         <!-- Kartan Container -->
         <section>
-          <div class="w3-container w3-padding-24 w3-center">
-            <div id="tabCont"></div>
+          <div class="w3-container w3-padding-24 w3-center hidden">
+            <div id="tabCont" style="display: inline-block; width: 100%; max-width: 1024px"></div>
             <!-- <aside>
               <figure>
                 <img
@@ -133,7 +139,7 @@
       </section>
     </main>
     <!-- Footer / Alatunniste, jossa on yhteystiedot, navigointi ja sosiaaliset verkostot -->
-    <footer class="w3-container w3-padding-24 w3-blue-grey">
+    <footer class="w3-container w3-padding-24 w3-blue-grey hidden">
       <div class="w3-row-padding">
         <!-- Koodilohko yhteystiedoilla -->
         <div class="w3-third">
@@ -234,10 +240,71 @@
       </div>
     </footer>
     <script>
-      document.getElementById("tabCont").innerHTML = "<h4>Ladataan...</h4>";
-      fetch("http://localhost:3000/api/employees")
-      .then((response) => response.json())
-      .then(data => console.log(data))
+      //------------pin tarkistus----------------------
+      async function checkPin() {
+        const pin = document.getElementById("pin").value;
+
+        try {
+          const response = await fetch("http://localhost:3000/api/getpin");
+          const data = await response.json();
+          const correctPin = data.pin;
+          
+          if (pin === correctPin) {
+            const hiddenElements = document.querySelectorAll(".hidden");
+            hiddenElements.forEach((element) => {
+              element.style.visibility = "visible";
+            });
+            document.getElementById("pin-div").style.visibility = "hidden";
+          } 
+          else {
+            alert("Väärä PIN-koodi!");
+          }
+        } catch (error) {
+          console.error("Virhe PIN-tarkistuksessa:", error);
+          alert("Virhe PIN-tarkistuksessa. Ota yhteyttä ylläpitoon.");
+        }
+
+      }
+
+      // Fetch data from the API and display it in the tab container
+      async function fetchData() {
+        document.getElementById("tabCont").innerHTML = "<h4>Ladataan...</h4>";
+        let x = `<table
+              class="w3-table w3-bordered w3-responsive"
+              style="width: 100%"
+            ><thead>
+              <tr>
+                <th>Avaatar</th>
+                <th>Nimi</th>
+                <th>Tehtävä</th>
+                <th>Sähköposti</th>
+                <th>Puhelin</th>
+              </tr></thead><tbody>`;
+        // Fetch data from the API
+        try {
+          const response = await fetch("http://localhost:3000/api/employees");
+          const data = await response.json();
+          
+          const team = data.team;
+  
+          x += team.map(member => `
+              <tr>
+                <td><img src="${member.avatar}" alt="Avatar" class="w3-image w3-circle" style="width: 50px"></td>
+                <td>${member.name}</td>
+                <td>${member.role}</td>
+                <td><a href="mailto:${member.email}">${member.email}</a></td>
+                <td><a href="tel:${member.phone}">${member.phone}</a></td>
+              </tr>
+            `).join('');
+  
+          x += "</tbody></table>";
+          document.getElementById("tabCont").innerHTML = x
+        //virhetilanteessa näytetään virheilmoitus
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+      fetchData();
     </script>
   </body>
 </html>

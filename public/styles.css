@@ -65,6 +65,9 @@ th {
   text-align: left;
   font-size: large; /* Tekstin peruskoko */
 }
+.w3-table td, .w3-table th {
+  vertical-align: middle;
+}
 .button-container {
   white-space: nowrap; /* Estä napin kääre */
 }
@@ -88,6 +91,9 @@ th {
 .about {
   padding-left: 150px;
   padding-right: 100px;
+}
+.hidden {
+  visibility: hidden;
 }
 
 @media (max-width: 1024px) {
