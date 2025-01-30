@@ -96,11 +96,8 @@
               <span class="w3-tag w3-wide">ABOUT WebWorks Studio</span>
             </h5>
             <p>
-              WebWorks Studio on nykyaikainen ohjelmistokehityksen yritys, joka
-              keskittyy täyden palvelun verkkosivustojen ja sovellusten
-              suunnitteluun ja toteutukseen. Tarjoamme räätälöityjä ratkaisuja,
-              jotka vastaavat asiakkaidemme tarpeita ja auttavat heidän
-              liiketoimintaansa kasvamaan digitaalisessa ympäristössä.
+              WebWorks Studio on nykyaikainen ohjelmistokehityksen yritys, joka keskittyy täyden palvelun verkkosivustojen ja sovellusten
+              suunnitteluun ja toteutukseen. Tarjoamme räätälöityjä ratkaisuja, jotka vastaavat asiakkaidemme tarpeita ja auttavat heidän liiketoimintaansa kasvamaan digitaalisessa ympäristössä.
             </p>
             <p>
               Olemme ylpeitä siitä, että yhdistämme luovuuden, teknisen
@@ -120,7 +117,8 @@
         <!-- Kartan Container -->
         <section>
           <div class="w3-container w3-padding-24 w3-center">
-            <aside>
+            <div id="tabCont"></div>
+            <!-- <aside>
               <figure>
                 <img
                   src="images/kartta.png"
@@ -129,7 +127,7 @@
                 />
                 <figcaption>WebWorks Oy:n kotikaupunki</figcaption>
               </figure>
-            </aside>
+            </aside> -->
           </div>
         </section>
       </section>
@@ -235,5 +233,11 @@
         </p>
       </div>
     </footer>
+    <script>
+      document.getElementById("tabCont").innerHTML = "<h4>Ladataan...</h4>";
+      fetch("http://localhost:3000/api/employees")
+      .then((response) => response.json())
+      .then(data => console.log(data))
+    </script>
   </body>
 </html>
