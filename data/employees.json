@@ -1,0 +1,39 @@
+{
+    "team": [
+      {
+        "avatar": "images/man-avatar.jpeg",
+        "name": "Andy Erokhin",
+        "role": "Full Stack Developer",
+        "email": "aerokhin@webworksstudio.com",
+        "phone": "+358 (XX) XXX-XXXX"
+      },
+      {
+        "avatar": "images/man-avatar.jpeg",
+        "name": "Janne Virtanen",
+        "role": "UI/UX Designer",
+        "email": "janne@webworksstudio.com",
+        "phone": "+358 (XX) XXX-XXXX"
+      },
+      {
+        "avatar": "images/woman-avatar.jpeg",
+        "name": "Laura Nieminen",
+        "role": "Projektipäällikkö",
+        "email": "laura@webworksstudio.com",
+        "phone": "+358 (XX) XXX-XXXX"
+      },
+      {
+        "avatar": "images/man-avatar.jpeg",
+        "name": "Mikko Salminen",
+        "role": "Back-End Developer",
+        "email": "mikko@webworksstudio.com",
+        "phone": "+358 (XX) XXX-XXXX"
+      },
+      {
+        "avatar": "images/woman-avatar.jpeg",
+        "name": "Anna Korhonen",
+        "role": "Markkinointipäällikkö",
+        "email": "anna@webworksstudio.com",
+        "phone": "+358 (XX) XXX-XXXX"
+      }
+    ]
+  }

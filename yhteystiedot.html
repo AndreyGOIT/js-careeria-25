@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebWorks Studio's site</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Links (sit on top) -->
+    <header class="w3-top w3-bar">
+      <nav>
+        <div
+          class="w3-row w3-padding w3-blue-grey top-nav"
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <div class="w3-col s1">
+            <a href="index.html" class="w3-block">
+              <img
+                src="images/Logo_WebWorks_Studio.png"
+                alt="Firman Logo"
+                class="w3-image"
+                style="width: 50px; vertical-align: middle"
+              />
+            </a>
+          </div>
+          <div class="w3-col s2">
+            <a
+              href="index.html"
+              class="w3-button w3-block w3-blue-grey nav-link"
+            >
+              <p class="nav-text">HOME</p>
+            </a>
+          </div>
+          <div class="w3-col s3">
+            <a
+              href="palvelut.html"
+              class="w3-button w3-block w3-blue-grey nav-link"
+            >
+              <p class="nav-text">TUOTTEEMME</p>
+            </a>
+          </div>
+          <div class="w3-col s3">
+            <a
+              href="yhteystiedot.html"
+              class="w3-button w3-block w3-blue-grey nav-link active"
+            >
+              <p class="nav-text">YHTEYSTIEDOT</p>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!------- Pääsisältö ----------->
+<main>
+    <!-- Add a background color and large text to the whole page -->
+    <section class="w3-sand w3-grayscale w3-large w3-padding-top-64">
+      <!-- Yhteystiedot Container -->
+      <div class="w3-container w3-padding-24">
+        <h1 class="w3-center">Yhteystiedot</h1>
+        <!-- Контейнер для контактной информации и карты -->
+        <div class="w3-row-padding w3-padding-16">
+          <!-- Koodilohko yhteystiedoilla -->
+          <div class="w3-half w3-center">
+            <address>
+              <p><strong>WebWorks Studio Oy</strong></p>
+              <p>
+                Osoite:
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Hevosenkengänkatu+2,+06100+Porvoo"
+                  target="_blank"
+                >
+                  Hevosenkengänkatu 2, 06100, Porvoo
+                </a>
+              </p>
+              <p>
+                Email:
+                <a href="mailto:info@webworksstudio.com"
+                  >info@webworksstudio.com</a
+                >
+              </p>
+              <p>Puhelin: <a href="tel:+358XXXXXXXXX">+358 (XX) XXX-XXXX</a></p>
+              <p>
+                Web-sivusto:
+                <a href="#" onclick="return false;"
+                  >https://www.webworksstudio.fi</a
+                >
+              </p>
+            </address>
+          </div>
+          <!-- Koodilohko kartalla -->
+          <div class="w3-half w3-center">
+            <h4>Sijainti: Hevosenkengänkatu 2, 06100 Porvoo</h4>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.313202080589!2d25.66350721622751!3d60.39333998197305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469206b59ae2c1a3%3A0xa31b92f47b8fdadb!2sHevosenkeng%C3%A4nkatu%202%2C%2006100%20Porvoo%2C%20Finland!5e0!3m2!1sen!2sfi!4v1698146940844!5m2!1sen!2sfi"
+              width="100%"
+              height="300"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+        <!-- Henkilökunta -->
+        <div class="w3-container w3-padding-24" style="text-align: center">
+          <h2>Yrityksen Henkilöt</h2>
+          <div style="display: inline-block; width: 100%; max-width: 900px">
+            <table
+              class="w3-table w3-bordered w3-responsive"
+              style="width: 100%"
+            >
+              <tr>
+                <th>Avaatar</th>
+                <th>Nimi</th>
+                <th>Tehtävä</th>
+                <th>Sähköposti</th>
+                <th>Puhelin</th>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="images/man-avatar.jpeg"
+                    alt="Andy Erokhin"
+                    style="width: 50px; height: 50px; border-radius: 50%"
+                  />
+                </td>
+                <td>Andy Erokhin</td>
+                <td>Full Stack Developer</td>
+                <td>
+                  <a href="mailto:aerokhin@webworksstudio.com"
+                    >aerokhin@webworksstudio.com</a
+                  >
+                </td>
+                <td><a href="tel:+358XXXXXXXXX">+358 (XX) XXX-XXXX</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="images/man-avatar.jpeg"
+                    alt="Janne Virtanen"
+                    style="width: 50px; height: 50px; border-radius: 50%"
+                  />
+                </td>
+                <td>Janne Virtanen</td>
+                <td>UI/UX Designer</td>
+                <td>
+                  <a href="mailto:janne@webworksstudio.com"
+                    >janne@webworksstudio.com</a
+                  >
+                </td>
+                <td><a href="tel:+358XXXXXXXXX">+358 (XX) XXX-XXXX</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="images/woman-avatar.jpeg"
+                    alt="Laura Nieminen"
+                    style="width: 50px; height: 50px; border-radius: 50%"
+                  />
+                </td>
+                <td>Laura Nieminen</td>
+                <td>Projektipäällikkö</td>
+                <td>
+                  <a href="mailto:laura@webworksstudio.com"
+                    >laura@webworksstudio.com</a
+                  >
+                </td>
+                <td><a href="tel:+358XXXXXXXXX">+358 (XX) XXX-XXXX</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="images/man-avatar.jpeg"
+                    alt="Mikko Salminen"
+                    style="width: 50px; height: 50px; border-radius: 50%"
+                  />
+                </td>
+                <td>Mikko Salminen</td>
+                <td>Back-End Developer</td>
+                <td>
+                  <a href="mailto:mikko@webworksstudio.com"
+                    >mikko@webworksstudio.com</a
+                  >
+                </td>
+                <td><a href="tel:+358XXXXXXXXX">+358 (XX) XXX-XXXX</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="images/woman-avatar.jpeg"
+                    alt="Anna Korhonen"
+                    style="width: 50px; height: 50px; border-radius: 50%"
+                  />
+                </td>
+                <td>Anna Korhonen</td>
+                <td>Markkinointipäällikkö</td>
+                <td>
+                  <a href="mailto:anna@webworksstudio.com"
+                    >anna@webworksstudio.com</a
+                  >
+                </td>
+                <td><a href="tel:+358XXXXXXXXX">+358 (XX) XXX-XXXX</a></td>
+              </tr>
+            </table>
+          </div>
+          <p>
+            Huomaa: sähköpostiosoitteet ja puhelinnumerot ovat interaktiivisia,
+            ja kun niitä napsautetaan, ne yrittävät ottaa yhteyttä kyseiseen
+            henkilöön
+          </p>
+        </div>
+      </div>
+      <!-- End page content -->
+    </section>
+  </main>
+    <!-- Footer / Alatunniste, jossa on yhteystiedot, navigointi ja sosiaaliset verkostot -->
+    <footer class="w3-container w3-padding-24 w3-blue-grey">
+      <div class="w3-row-padding">
+        <!-- Koodilohko yhteystiedoilla -->
+        <div class="w3-third">
+          <h3>Yhteystiedot:</h3>
+          <address>
+            <p class="nav-text">WebWorks Studio Oy</p>
+            <p class="nav-text">Osoite: Hevosenkengänkatu 2, 06100, Porvoo</p>
+            <p class="nav-text">
+              Email:
+              <a href="mailto:info@webworksstudio.com" rel="noopener noreferrer"
+                >info@webworksstudio.com</a
+              >
+            </p>
+            <p class="nav-text">
+              Puhelin:
+              <a href="tel:+358XXXXXXXXX" rel="noopener noreferrer"
+                >+358 (XX) XXX-XXXX</a
+              >
+            </p>
+          </address>
+        </div>
+        <!-- Koodilohko, jossa on navigointi -->
+        <div class="w3-third">
+          <h3>Navigointi</h3>
+          <nav>
+            <ul class="w3-ul">
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="palvelut.html">TUOTTEEMME</a></li>
+              <li><a href="yhteystiedot.html">YHTEYSTIEDOT</a></li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Koodilohko sosiaalisten verkostojen kanssa -->
+        <div class="w3-third">
+          <h3>Seuraa meitä</h3>
+          <div class="w3-row">
+            <div class="w3-col s3 w3-container">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook"
+                class="w3-button w3-indigo w3-hover-opacity w3-margin-bottom"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+            </div>
+            <div class="w3-col s3 w3-container">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                title="Twitter"
+                class="w3-button w3-light-blue w3-hover-opacity w3-margin-bottom"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+            <div class="w3-col s3 w3-container">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+                class="w3-button w3-pink w3-hover-opacity w3-margin-bottom"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+            <div class="w3-col s3 w3-container">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Linkedin"
+                title="Linkedin"
+                class="w3-button w3-blue w3-hover-opacity"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="w3-center">
+        <p>
+          <img
+            src="images/Logo_WebWorks_Studio.png"
+            alt="Firman Logo"
+            class="w3-image logo-bottom"
+          />
+          &copy; 2024 WebWorks Studio. Kaikki oikeudet pidätetään.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

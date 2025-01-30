@@ -1,0 +1,199 @@
+body,
+html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem; /* Peruskoko */
+}
+h2 {
+  font-size: 2rem; /* Koko keskikokoisille näytöille */
+  margin-top: 0;
+}
+.logo {
+  width: 50px;
+  vertical-align: middle;
+}
+.logo-bottom {
+  width: 30px;
+  vertical-align: middle;
+}
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("images/Toimisto_kuva.png");
+  min-height: 75vh;
+}
+
+.menu {
+  display: none;
+}
+.nav-text {
+  font-size: x-large;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+/* Alleviivaa aktiivinen linkki */
+.nav-link.active {
+  text-decoration: underline; /* alleviivaus */
+  color: #ffffff; /* Tekstin väri aktiivisena */
+}
+
+.hero-text {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.2rem; /* Tekstin koko suurille näytöille */
+}
+li {
+  font-size: 1.2rem; /* Tekstin koko suurille näytöille */
+}
+
+.img-width {
+  max-width: 600px;
+  height: auto;
+}
+
+td,
+th {
+  padding: 8px;
+  text-align: left;
+  font-size: large; /* Tekstin peruskoko */
+}
+.button-container {
+  white-space: nowrap; /* Estä napin kääre */
+}
+.kartta-kuva {
+  max-width: 75%;
+  height: auto;
+}
+.responsive-video {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+.tech-text-top {
+  margin-top: 0;
+}
+.palvelut-main {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+.about {
+  padding-left: 150px;
+  padding-right: 100px;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.2rem; /* Vähenee suhteessa */
+  }
+  h2 {
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 1.2rem; /* Tekstin koko tableteille */
+  }
+  .hero-text {
+    font-size: 80px;
+  }
+  .nav-text {
+    font-size: large;
+  }
+  .responsive-video {
+    max-width: 100%; /* Skaalaus pienille näytöille */
+  }
+  .tech-text {
+    padding-left: 20px;
+  }
+  .palvelut-main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .about {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  h1,
+  h3 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 0.9rem; /* Pienempi tekstikoko pienille näytöille */
+  }
+  li {
+    font-size: 0.9rem; /* Pienempi tekstikoko pienille näytöille */
+  }
+  .hero-text {
+    font-size: 60px;
+  }
+  .nav-text {
+    font-size: medium;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  .img-width {
+    max-width: 100%; /* Kuva täyttää koko näytön leveyden mobiililaitteissa */
+  }
+  td,
+  th {
+    font-size: medium; /* Pienempi tekstikoko pienille näytöille */
+  }
+
+  @media (max-width: 480px) {
+    h1,
+    h3 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    li {
+      font-size: 0.9rem; /* Pienempi tekstikoko pienille näytöille */
+    }
+    .nav-text {
+      font-size: small;
+      padding: 5px;
+    }
+    .kartta-kuva {
+      max-width: 100%;
+    }
+    .tech-text {
+      padding-left: 0;
+    }
+    .tech-text-top {
+      margin-top: 15px;
+    }
+    .top-nav {
+      padding: 0 !important;
+      justify-content: space-between !important;
+    }
+    .nav-link {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    td,
+  th {
+    font-size: small; /* Pienempi tekstikoko pienille näytöille */
+  }
+  }
+}
