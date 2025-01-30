@@ -1,0 +1,26 @@
+{
+  "name": "palautus_tehtava_js",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyGOIT/js-careeria-25.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AndreyGOIT/js-careeria-25/issues"
+  },
+  "homepage": "https://github.com/AndreyGOIT/js-careeria-25#readme",
+  "description": "credit work on the JS course",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
