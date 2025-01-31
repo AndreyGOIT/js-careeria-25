@@ -10,6 +10,29 @@ app.use(cors());
 const path = require('path');
 const htmlPath = path.join(path.join(__dirname, '/public'));
 app.use(express.static(htmlPath));
+//-------------------------------------
+
+//------endpoints-----
+app.get('/', (req, res) => {
+    res.sendFile(path.join(htmlPath, 'index.html'));
+});
+app.get('/palvelut', (req, res) => {
+    res.sendFile(path.join(htmlPath, 'palvelut.html'));
+});
+app.get('/yhteystiedot', (req, res) => {
+    res.sendFile(path.join(htmlPath, 'yhteystiedot.html'));
+});
+app.get('/verkkosivuston-kehitys', (req, res) => {
+    res.sendFile(path.join(htmlPath, 'pages/verkkosivuston-kehitys.html'));
+});
+app.get('/sovelluskehitys', (req, res) => {
+    res.sendFile(path.join(htmlPath, 'pages/sovelluskehitys.html'));
+});
+app.get('/hakukoneoptimointi', (req, res) => {
+    res.sendFile(path.join(htmlPath, 'pages/hakukoneoptimointi.html'));
+});
+//----------------------------------------
+
 
 //--REST API palvelin-----
 app.get('/api/employees', (req, res) => {

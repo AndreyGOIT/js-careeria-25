@@ -9,7 +9,8 @@ if (savedPin) {
 function logOut() {
   localStorage.clear();
   // Hide hidden elements and show the PIN input field
-  window.location.reload();
+  // window.location.reload();
+  window.location.href = "/"; //Ohjaa etusivulle
 }
 
 //------------pin tarkistus----------------------
@@ -49,13 +50,14 @@ function showElements() {
   });
   // Hide the PIN input field
   document.getElementById("pin-div").style.display = "none";
-  document.getElementsByTagName("footer")[0].style.display = "block";
+  // document.getElementsByTagName("footer")[0].style.display = "block";
+  document.getElementById("footer-main").style.display = "block";
 }
 
 // Fetch data from the API and display it in the tab container
 async function fetchData() {
   document.getElementById("tabCont").innerHTML = "<h4>Ladataan...</h4>";
-  let x = `<table class="w3-table-all w3-card-4 w3-hoverable">
+  let x = `<table class="w3-table-all w3-hoverable">
               <thead>
               <tr class="w3-light-grey">
                 <th class="w3-center">Avaatar</th>

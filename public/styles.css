@@ -126,8 +126,14 @@ th {
 .slogan {
   font-size: 1.8rem;
 }
-footer {
+#footer-main {
   display: none;
+}
+.session-btn {
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {

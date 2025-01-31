@@ -24,8 +24,8 @@
           class="w3-row w3-padding w3-blue-grey top-nav"
           style="display: flex; justify-content: center; align-items: center"
         >
-          <div class="w3-col s1">
-            <a href="index.html" class="w3-block">
+          <div class="w3-col s1 w3-center">
+            <a href="/" class="w3-block">
               <img
                 src="images/Logo_WebWorks_Studio.png"
                 alt="Firman Logo"
@@ -36,7 +36,7 @@
           </div>
           <div class="w3-col s2">
             <a
-              href="index.html"
+              href="/"
               class="w3-button w3-block w3-blue-grey nav-link"
             >
               <p class="nav-text">HOME</p>
@@ -44,7 +44,7 @@
           </div>
           <div class="w3-col s3">
             <a
-              href="palvelut.html"
+              href="/palvelut"
               class="w3-button w3-block w3-blue-grey nav-link"
             >
               <p class="nav-text">TUOTTEEMME</p>
@@ -52,11 +52,14 @@
           </div>
           <div class="w3-col s3">
             <a
-              href="yhteystiedot.html"
+              href="/yhteystiedot"
               class="w3-button w3-block w3-blue-grey nav-link"
             >
               <p class="nav-text">YHTEYSTIEDOT</p>
             </a>
+          </div>
+          <div class="w3-col s3 w3-center">
+            <button class="session-btn" onclick="logOut()">end session</button>
           </div>
         </div>
       </nav>
@@ -66,18 +69,18 @@
       <section class="w3-sand w3-grayscale w3-large w3-padding-top-64">
         <!-- Tuotteen Container -->
         <div class="w3-container w3-padding-24">
-          <h1 class="w3-center">Sovelluskehitys</h1>
+          <h1 class="w3-center">Hakukoneoptimointi (SEO)</h1>
           <p>
-            WebWorks Studio kehittää monipuolisia ja tehokkaita mobiili- ja
-            verkkosovelluksia, jotka auttavat yrityksiä digitalisoitumaan ja
-            parantamaan asiakaskokemusta.
+            Hakukoneoptimointi auttaa yritystäsi erottumaan hakukoneiden
+            tuloksissa. WebWorks Studio tarjoaa SEO-palveluita, jotka parantavat
+            sivustosi näkyvyyttä ja liikennettä.
           </p>
 
           <div class="w3-row-padding w3-padding-16">
             <div class="w3-col l6 m6 w3-padding-small">
               <img
-                src="images/istockphoto-sovelluskehitys-1024x1024.jpg"
-                alt="Sovelluskehitys"
+                src="images/istockphoto-SEO-1024x1024.jpg"
+                alt="Hakukoneoptimointi (SEO)"
                 style="width: 100%"
               />
             </div>
@@ -85,17 +88,17 @@
             <div class="w3-col l6 m6 w3-padding-small">
               <h2>Palvelun ominaisuudet</h2>
               <ul>
-                <li>Räätälöidyt sovellukset yrityksen tarpeisiin</li>
-                <li>Yhteensopivuus eri alustojen kanssa (iOS, Android, web)</li>
-                <li>Käyttäjäystävällinen ja intuitiivinen käyttöliittymä</li>
-                <li>Turvallinen ja skaalautuva ratkaisu</li>
+                <li>Avainsanatutkimus ja kilpailija-analyysi</li>
+                <li>Sisällön optimointi ja metatietojen parantaminen</li>
+                <li>Sivuston tekninen optimointi</li>
+                <li>Kuukausittainen raportointi ja jatkuva seuranta</li>
               </ul>
 
               <h2>Toimitusaika ja hinta</h2>
-              <p>Toimitusaika: alkaen 3 viikkoa</p>
-              <p>Hinta: 2500 €</p>
+              <p>Toimitusaika: jatkuva palvelu</p>
+              <p>Hinta: 500 €</p>
 
-              <a href="palvelut.html">Takaisin tuotteisiin ja palveluihin</a>
+              <a href="/palvelut">Takaisin tuotteisiin ja palveluihin</a>
             </div>
           </div>
         </div>
@@ -130,9 +133,9 @@
           <h3>Navigointi</h3>
           <nav>
             <ul class="w3-ul">
-              <li><a href="index.html">HOME</a></li>
-              <li><a href="palvelut.html">TUOTTEEMME</a></li>
-              <li><a href="yhteystiedot.html">YHTEYSTIEDOT</a></li>
+              <li><a href="/">HOME</a></li>
+              <li><a href="/palvelut">TUOTTEEMME</a></li>
+              <li><a href="/yhteystiedot">YHTEYSTIEDOT</a></li>
             </ul>
           </nav>
         </div>
@@ -203,5 +206,6 @@
         </p>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>

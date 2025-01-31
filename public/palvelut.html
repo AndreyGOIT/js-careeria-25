@@ -18,14 +18,14 @@
 
   <body>
     <!-- Links (sit on top) -->
-    <header class="w3-top w3-bar">
+    <header class="w3-top">
       <nav>
         <div
           class="w3-row w3-padding w3-blue-grey top-nav"
           style="display: flex; justify-content: center; align-items: center"
         >
-          <div class="w3-col s1">
-            <a href="index.html" class="w3-block">
+          <div class="w3-col s1 w3-center">
+            <a href="/" class="w3-block">
               <img
                 src="images/Logo_WebWorks_Studio.png"
                 alt="Firman Logo"
@@ -36,7 +36,7 @@
           </div>
           <div class="w3-col s2">
             <a
-              href="index.html"
+              href="/"
               class="w3-button w3-block w3-blue-grey nav-link"
             >
               <p class="nav-text">HOME</p>
@@ -44,65 +44,143 @@
           </div>
           <div class="w3-col s3">
             <a
-              href="palvelut.html"
-              class="w3-button w3-block w3-blue-grey nav-link"
+              href="/palvelut"
+              class="w3-button w3-block w3-blue-grey nav-link active"
             >
               <p class="nav-text">TUOTTEEMME</p>
             </a>
           </div>
           <div class="w3-col s3">
             <a
-              href="yhteystiedot.html"
+              href="/yhteystiedot"
               class="w3-button w3-block w3-blue-grey nav-link"
             >
               <p class="nav-text">YHTEYSTIEDOT</p>
             </a>
           </div>
+          <div class="w3-col s3 w3-center">
+            <button class="session-btn" onclick="logOut()">end session</button>
+          </div>
         </div>
       </nav>
     </header>
-    <!--Pääsisältö-->
+    <!--   Pääsisältö   -->
     <main>
-      <section class="w3-sand w3-grayscale w3-large w3-padding-top-64">
-        <!-- Tuotteen Container -->
+      <!-- Add a background color and large text to the whole page -->
+      <section
+        class="w3-sand w3-grayscale w3-large w3-padding-top-64 palvelut-main"
+      >
+        <!-- Tuotteet ja palvelut Container -->
         <div class="w3-container w3-padding-24">
-          <h1 class="w3-center">Hakukoneoptimointi (SEO)</h1>
+          <h1 class="w3-center">Tuotteet ja Palvelut</h1>
+          <p>Alta löydät WebWorks Studion tarjoamat palvelut ja tuotteet.</p>
+          <div class="w3-card-4" style="overflow-x: auto">
+            <table class="w3-table w3-bordered w3-striped w3-hoverable">
+              <thead>
+                <tr class="w3-light-grey">
+                  <th>Palvelu / Tuote</th>
+                  <th>Kuvaus</th>
+                  <th>Toimitusaika</th>
+                  <th>Hinta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="/verkkosivuston-kehitys"
+                      >Verkkosivuston kehitys</a
+                    >
+                  </td>
+                  <td>
+                    Responsiivisten ja räätälöityjen verkkosivustojen
+                    suunnittelu ja toteutus
+                  </td>
+                  <td>Alkaen 2 viikkoa</td>
+                  <td>1500 €</td>
+                </tr>
+                <tr>
+                  <td>Ylläpito ja tuki</td>
+                  <td>
+                    Sisällön päivitys, virheiden korjaus ja sivuston seuranta
+                  </td>
+                  <td>Kuukausittain</td>
+                  <td>300 € / kuukausi</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="/sovelluskehitys">Verkkosovellusten kehitys</a>
+                  </td>
+                  <td>
+                    Monimutkaisten verkkosovellusten kehitys nykyaikaisilla
+                    teknologioilla
+                  </td>
+                  <td>Alkaen 1 kuukausi</td>
+                  <td>2500 €</td>
+                </tr>
+                <tr>
+                  <td><a href="/hakukoneoptimointi">SEO-optimointi</a></td>
+                  <td>Sivuston näkyvyyden parantaminen hakukoneissa</td>
+                  <td>2–4 viikkoa</td>
+                  <td>800 €</td>
+                </tr>
+                <tr>
+                  <td>Hosting ja domain</td>
+                  <td>Verkkotunnusten rekisteröinti ja hosting-palvelut</td>
+                  <td>1–2 päivää</td>
+                  <td>50 € / kuukausi</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="w3-container w3-padding-24">
+          <h2>Käytämme moderneja teknologioita kehitystyössämme</h2>
           <p>
-            Hakukoneoptimointi auttaa yritystäsi erottumaan hakukoneiden
-            tuloksissa. WebWorks Studio tarjoaa SEO-palveluita, jotka parantavat
-            sivustosi näkyvyyttä ja liikennettä.
+            WebWorks Studio käyttää nykyaikaisia teknologioita ja työkaluja
+            kehitystyössämme.
           </p>
-
-          <div class="w3-row-padding w3-padding-16">
-            <div class="w3-col l6 m6 w3-padding-small">
-              <img
-                src="images/istockphoto-SEO-1024x1024.jpg"
-                alt="Hakukoneoptimointi (SEO)"
-                style="width: 100%"
-              />
+          <div class="w3-row w3-padding-16">
+            <div class="w3-responsive w3-half">
+              <iframe
+                class="responsive-video"
+                src="https://www.youtube.com/embed/bMknfKXIFA8"
+                title="React-aloitusopas"
+                frameborder="0"
+                allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              >
+              </iframe>
             </div>
-            <!-- Palvelun tiedot -->
-            <div class="w3-col l6 m6 w3-padding-small">
-              <h2>Palvelun ominaisuudet</h2>
-              <ul>
-                <li>Avainsanatutkimus ja kilpailija-analyysi</li>
-                <li>Sisällön optimointi ja metatietojen parantaminen</li>
-                <li>Sivuston tekninen optimointi</li>
-                <li>Kuukausittainen raportointi ja jatkuva seuranta</li>
-              </ul>
-
-              <h2>Toimitusaika ja hinta</h2>
-              <p>Toimitusaika: jatkuva palvelu</p>
-              <p>Hinta: 500 €</p>
-
-              <a href="palvelut.html">Takaisin tuotteisiin ja palveluihin</a>
+            <!-- Tekstin osio -->
+            <div class="w3-responsive w3-half tech-text">
+              <p class="tech-text-top">
+                WebWorks Studio on sitoutunut käyttämään viimeisimpiä ja
+                tehokkaimpia kehitystyökaluja tarjotakseen parhaan mahdollisen
+                kokemuksen asiakkaillemme. Yksi merkittävistä teknologioista,
+                joita käytämme verkkosivustojen ja sovellusten kehityksessä, on
+                <a href="https://react.dev/" target="_blank">React</a>.
+              </p>
+              <p>
+                React on suosittu JavaScript-kirjasto, joka mahdollistaa
+                responsiivisten ja interaktiivisten käyttöliittymien luomisen
+                nopeasti ja tehokkaasti. Reactin avulla voimme rakentaa
+                monipuolisia ja helposti laajennettavia ratkaisuja, jotka
+                vastaavat asiakkaidemme tarpeisiin ja toimivat saumattomasti eri
+                laitteilla.
+              </p>
+              <p>
+                Valitsemalla WebWorks Studion voit olla varma, että projektisi
+                toteutetaan laadukkaasti ja modernien kehitysstandardien
+                mukaisesti.
+              </p>
             </div>
           </div>
         </div>
-        <!-- End page content -->
       </section>
+      <!-- End page content -->
     </main>
-    <!-- Footer / Alatunniste, jossa on yhteystiedot, navigointi ja sosiaaliset verkostot -->
+    <!-- Footer -->
     <footer class="w3-container w3-padding-24 w3-blue-grey">
       <div class="w3-row-padding">
         <!-- Koodilohko yhteystiedoilla -->
@@ -199,9 +277,10 @@
             alt="Firman Logo"
             class="w3-image logo-bottom"
           />
-          &copy; 2024 WebWorks Studio. Kaikki oikeudet pidätetään.
+          Created in WebWorks Studio by Andy E. &copy; 2025
         </p>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>

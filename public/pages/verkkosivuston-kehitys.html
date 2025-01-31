@@ -25,7 +25,7 @@
           style="display: flex; justify-content: center; align-items: center"
         >
           <div class="w3-col s1">
-            <a href="index.html" class="w3-block">
+            <a href="/" class="w3-block">
               <img
                 src="images/Logo_WebWorks_Studio.png"
                 alt="Firman Logo"
@@ -36,7 +36,7 @@
           </div>
           <div class="w3-col s2">
             <a
-              href="index.html"
+              href="/"
               class="w3-button w3-block w3-blue-grey nav-link"
             >
               <p class="nav-text">HOME</p>
@@ -44,7 +44,7 @@
           </div>
           <div class="w3-col s3">
             <a
-              href="palvelut.html"
+              href="/palvelut"
               class="w3-button w3-block w3-blue-grey nav-link"
             >
               <p class="nav-text">TUOTTEEMME</p>
@@ -52,11 +52,14 @@
           </div>
           <div class="w3-col s3">
             <a
-              href="yhteystiedot.html"
+              href="/yhteystiedot"
               class="w3-button w3-block w3-blue-grey nav-link"
             >
               <p class="nav-text">YHTEYSTIEDOT</p>
             </a>
+          </div>
+          <div class="w3-col s3 w3-center">
+            <button class="session-btn" onclick="logOut()">end session</button>
           </div>
         </div>
       </nav>
@@ -99,7 +102,7 @@
               <p>Toimitusaika: alkaen 2 viikkoa</p>
               <p>Hinta: 1500 €</p>
 
-              <a href="palvelut.html">Takaisin tuotteisiin ja palveluihin</a>
+              <a href="/palvelut">Takaisin tuotteisiin ja palveluihin</a>
             </div>
           </div>
         </div>
@@ -134,9 +137,9 @@
           <h3>Navigointi</h3>
           <nav>
             <ul class="w3-ul">
-              <li><a href="index.html">HOME</a></li>
-              <li><a href="palvelut.html">TUOTTEEMME</a></li>
-              <li><a href="yhteystiedot.html">YHTEYSTIEDOT</a></li>
+              <li><a href="/">HOME</a></li>
+              <li><a href="/palvelut">TUOTTEEMME</a></li>
+              <li><a href="/yhteystiedot">YHTEYSTIEDOT</a></li>
             </ul>
           </nav>
         </div>
@@ -203,9 +206,10 @@
             alt="Firman Logo"
             class="w3-image logo-bottom"
           />
-          &copy; 2024 WebWorks Studio. Kaikki oikeudet pidätetään.
+          Created in WebWorks Studio by Andy E. &copy; 2025
         </p>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
