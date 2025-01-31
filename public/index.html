@@ -119,13 +119,13 @@
             </p>
             <p class="article">Laita ideasi käytäntöön WebWorks Studion kanssa!</p>
             <div class="w3-panel w3-leftbar w3-light-grey w3-center">
-              <p class="w3-xlarge w3-wide ">
+              <p class=" w3-wide slogan">
                 <strong><i>“Teemme digitaalisen helpoksi”</i></strong>
               </p>
             </div>
           </div>
         </section>
-        <!-- Kartan Container -->
+        <!-- Contant Container -->
         <section>
           <div class="w3-container w3-padding-24 w3-center hidden">
             <h2>Yrityksen Henkilöt</h2>
@@ -145,7 +145,7 @@
       </section>
     </main>
     <!-- Footer / Alatunniste, jossa on yhteystiedot, navigointi ja sosiaaliset verkostot -->
-    <footer class="w3-container w3-padding-24 w3-blue-grey hidden">
+    <footer class="w3-container w3-padding-24 w3-blue-grey ">
       <div class="w3-row-padding">
         <!-- Koodilohko yhteystiedoilla -->
         <div class="w3-third">
@@ -181,7 +181,7 @@
         <!-- Koodilohko sosiaalisten verkostojen kanssa -->
         <div class="w3-third">
           <h3>Seuraa meitä</h3>
-          <div class="w3-row">
+          <div class="w3-row some">
             <div class="w3-col s3 w3-container">
               <a
                 href="https://facebook.com"
@@ -241,103 +241,10 @@
             alt="Firman Logo"
             class="w3-image logo-bottom"
           />
-          &copy; 2024 WebWorks Studio. Kaikki oikeudet pidätetään.
+          WebWorks Studio /Andy E./ Kaikki oikeudet pidätetään &copy; 2025
         </p>
       </div>
     </footer>
-    <script>
-      const savedPin = localStorage.getItem("pinEntered");
-      if (savedPin) {
-        // Show hidden elements and hide the PIN input field
-        showElements();
-      }
-
-      //------------log out----------------------
-      function logOut() {
-        localStorage.clear();
-        // Hide hidden elements and show the PIN input field
-        window.location.reload();
-      }
-
-      //------------pin tarkistus----------------------
-      async function checkPin() {
-        const pin = document.getElementById("pin").value;
-
-        try {
-          const response = await fetch("http://localhost:3000/api/getpin");
-          const data = await response.json();
-          const correctPin = data.pin;
-          
-          if (pin === correctPin) {
-            localStorage.setItem("pinEntered", pin);
-            // Show the welcome message
-            document.getElementById("welcome-message").style.visibility = "visible";
-            document.getElementById("input-label").style.display = "none";
-            // Hide the welcome message after 4 seconds
-            setTimeout(() => {
-              document.getElementById("welcome-message").style.visibility = "hidden";
-              // Show hidden elements and hide the PIN input field
-              showElements();
-            }, 3000); 
-          } 
-          else {
-            alert("Väärä PIN-koodi!");
-          }
-        } catch (error) {
-          console.error("Virhe PIN-tarkistuksessa:", error);
-          alert("Virhe PIN-tarkistuksessa. Ota yhteyttä ylläpitoon.");
-        }
-      }
-      //------------show elements----------------------
-      function showElements() {
-        // Show the hidden elements
-        const hiddenElements = document.querySelectorAll(".hidden");
-        hiddenElements.forEach((element) => {
-            element.style.visibility = "visible";
-        });
-        // document.getElementById("pin-div").style.visibility = "hidden";
-        document.getElementById("pin-div").style.display = "none";
-      }  
-
-      // Fetch data from the API and display it in the tab container
-      async function fetchData() {
-        document.getElementById("tabCont").innerHTML = "<h4>Ladataan...</h4>";
-        let x = `<table
-              class="w3-table-all w3-card-4 w3-hoverable w3-responsive"
-              style="width: 100%"
-            ><thead>
-              <tr class="w3-light-grey">
-                <th class="w3-center">Avaatar</th>
-                <th class="w3-center">Nimi</th>
-                <th class="w3-center">Tehtävä</th>
-                <th class="w3-center">Sähköposti</th>
-                <th class="w3-center">Puhelin</th>
-              </tr></thead><tbody>`;
-        // Fetch data from the API
-        try {
-          const response = await fetch("http://localhost:3000/api/employees");
-          const data = await response.json();
-          
-          const team = data.team;
-  
-          x += team.map(member => `
-              <tr>
-                <td><img src="${member.avatar}" alt="Avatar" class="w3-image w3-circle" style="width: 50px"></td>
-                <td>${member.name}</td>
-                <td>${member.role}</td>
-                <td><a href="mailto:${member.email}">${member.email}</a></td>
-                <td><a href="tel:${member.phone}">${member.phone}</a></td>
-              </tr>
-            `).join('');
-  
-          x += "</tbody></table>";
-          document.getElementById("tabCont").innerHTML = x
-        //virhetilanteessa näytetään virheilmoitus
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      }
-      fetchData();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

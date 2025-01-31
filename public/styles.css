@@ -30,7 +30,7 @@ h2 {
   display: none;
 }
 .nav-text {
-  font-size: x-large;
+  font-size: large;
   color: white;
   padding: 0;
   margin: 0;
@@ -71,7 +71,8 @@ th {
 .bold {
   font-weight: bold;
 }
-.w3-table td, .w3-table th {
+.w3-table td,
+.w3-table th {
   vertical-align: middle;
 }
 .button-container {
@@ -111,6 +112,23 @@ th {
   color: rgb(1, 123, 216);
   font-size: 20px;
 }
+#tabCont table {
+  margin: auto;
+  display: table;
+}
+#tabCont {
+  overflow-x: auto;
+}
+.some {
+  margin-top: 55px;
+  margin-bottom: 10px;
+}
+.slogan {
+  font-size: 1.8rem;
+}
+footer {
+  display: none;
+}
 
 @media (max-width: 1024px) {
   h1 {
@@ -119,7 +137,7 @@ th {
   h2 {
     font-size: 1.6rem;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
   }
   p {
     font-size: 1.2rem; /* Tekstin koko tableteille */
@@ -144,6 +162,9 @@ th {
     padding-left: 0;
     padding-right: 0;
   }
+  .slogan {
+    font-size: 1.7rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -154,7 +175,7 @@ th {
   h2 {
     font-size: 1.3rem;
     margin-top: 0;
-    margin-bottom: 0;
+    /*margin-bottom: 0;*/
   }
   p {
     font-size: 0.9rem; /* Pienempi tekstikoko pienille näytöille */
@@ -178,7 +199,14 @@ th {
   th {
     font-size: medium; /* Pienempi tekstikoko pienille näytöille */
   }
-
+  .some {
+    margin-top: 45px;
+    margin-bottom: 10px;
+  }
+  .slogan {
+    font-size: 1.5rem;
+  }
+}
   @media (max-width: 480px) {
     h1,
     h3 {
@@ -187,13 +215,12 @@ th {
     h2 {
       font-size: 1.1rem;
       margin-top: 0;
-      margin-bottom: 0;
+      /*margin-bottom: 0;*/
     }
     li {
       font-size: 0.9rem; /* Pienempi tekstikoko pienille näytöille */
     }
-    .nav-text {
-      font-size: small;
+    .nav-text { 
       padding: 5px;
     }
     .kartta-kuva {
@@ -214,14 +241,21 @@ th {
       padding-right: 0 !important;
     }
     td,
-  th {
-    font-size: small; /* Pienempi tekstikoko pienille näytöille */
+    th {
+      font-size: small; /* Pienempi tekstikoko pienille näytöille */
+    }
+    .about-title {
+      margin-top: 20px;
+    }
+    .article {
+      margin: 15px 0;
+    }
+    .some {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .slogan {
+      font-size: 1.3rem;
+    }
   }
-  .about-title {
-  margin-top: 20px;
-  }
-  .article {
-    margin: 15px 0;
-  }
-  }
-}
+
