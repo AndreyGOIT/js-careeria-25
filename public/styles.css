@@ -50,6 +50,9 @@ h2 {
 p {
   font-size: 1.2rem; /* Tekstin koko suurille näytöille */
 }
+.article {
+  margin: 10px 0;
+}
 li {
   font-size: 1.2rem; /* Tekstin koko suurille näytöille */
 }
@@ -64,6 +67,9 @@ th {
   padding: 8px;
   text-align: left;
   font-size: large; /* Tekstin peruskoko */
+}
+.bold {
+  font-weight: bold;
 }
 .w3-table td, .w3-table th {
   vertical-align: middle;
@@ -92,8 +98,18 @@ th {
   padding-left: 150px;
   padding-right: 100px;
 }
+.about-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 16px;
+}
 .hidden {
   visibility: hidden;
+}
+#welcome-message {
+  visibility: hidden;
+  color: rgb(1, 123, 216);
+  font-size: 20px;
 }
 
 @media (max-width: 1024px) {
@@ -200,6 +216,12 @@ th {
     td,
   th {
     font-size: small; /* Pienempi tekstikoko pienille näytöille */
+  }
+  .about-title {
+  margin-top: 20px;
+  }
+  .article {
+    margin: 15px 0;
   }
   }
 }

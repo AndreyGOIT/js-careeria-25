@@ -85,12 +85,14 @@
       </section>
 
       <section class="w3-sand w3-grayscale ">
-        <center >
+        <!---- Pin input block -->
           <div id="pin-div" class="w3-center w3-padding-24">
             <input id="pin" placeholder="pin code" type="password"/>
-            <button onclick="checkPin()">LOGIN</button>
+            <button class="w3-blue-grey" onclick="checkPin()">LOGIN</button>
+            <h5 id="input-label">Please enter your PIN to access</h5>
+            <h4 id="welcome-message">Welcome and have a nice day!</h4>
           </div>
-        </center>
+        
         <!-- About Container -->
         <section class="w3-container w3-row w3-padding-24 about hidden">
           <div class="w3-col l6 m6 s12 w3-padding img-width">
@@ -101,21 +103,21 @@
             />
           </div>
           <div class="w3-col l6 m6 s12 w3-padding">
-            <h5 class="w3-center w3-padding-16">
+            <h5 class="w3-center  about-title">
               <span class="w3-tag w3-wide">ABOUT WebWorks Studio</span>
             </h5>
-            <p>
+            <p class="article">
               WebWorks Studio on nykyaikainen ohjelmistokehityksen yritys, joka keskittyy täyden palvelun verkkosivustojen ja sovellusten
               suunnitteluun ja toteutukseen. Tarjoamme räätälöityjä ratkaisuja, jotka vastaavat asiakkaidemme tarpeita ja auttavat heidän liiketoimintaansa kasvamaan digitaalisessa ympäristössä.
             </p>
-            <p>
+            <p class="article">
               Olemme ylpeitä siitä, että yhdistämme luovuuden, teknisen
               asiantuntemuksen ja nykyaikaiset teknologiat tuottaaksemme
               korkealaatuisia ja käyttäjäystävällisiä verkkopalveluita. Olipa
               kyseessä yrityksen kotisivu, verkkokauppa tai räätälöity sovellus,
               tiimimme huolehtii koko kehitysprosessista alusta loppuun.
             </p>
-            <p>Laita ideasi käytäntöön WebWorks Studion kanssa!</p>
+            <p class="article">Laita ideasi käytäntöön WebWorks Studion kanssa!</p>
             <div class="w3-panel w3-leftbar w3-light-grey w3-center">
               <p class="w3-xlarge w3-wide ">
                 <strong><i>“Teemme digitaalisen helpoksi”</i></strong>
@@ -126,6 +128,7 @@
         <!-- Kartan Container -->
         <section>
           <div class="w3-container w3-padding-24 w3-center hidden">
+            <h2>Yrityksen Henkilöt</h2>
             <div id="tabCont" style="display: inline-block; width: 100%; max-width: 1024px"></div>
             <!-- <aside>
               <figure>
@@ -252,8 +255,8 @@
       //------------log out----------------------
       function logOut() {
         localStorage.clear();
-        window.location.reload();
         // Hide hidden elements and show the PIN input field
+        window.location.reload();
       }
 
       //------------pin tarkistus----------------------
@@ -267,8 +270,15 @@
           
           if (pin === correctPin) {
             localStorage.setItem("pinEntered", pin);
-            // Show hidden elements and hide the PIN input field
-            showElements();
+            // Show the welcome message
+            document.getElementById("welcome-message").style.visibility = "visible";
+            document.getElementById("input-label").style.display = "none";
+            // Hide the welcome message after 4 seconds
+            setTimeout(() => {
+              document.getElementById("welcome-message").style.visibility = "hidden";
+              // Show hidden elements and hide the PIN input field
+              showElements();
+            }, 3000); 
           } 
           else {
             alert("Väärä PIN-koodi!");
@@ -285,22 +295,23 @@
         hiddenElements.forEach((element) => {
             element.style.visibility = "visible";
         });
-        document.getElementById("pin-div").style.visibility = "hidden";
+        // document.getElementById("pin-div").style.visibility = "hidden";
+        document.getElementById("pin-div").style.display = "none";
       }  
 
       // Fetch data from the API and display it in the tab container
       async function fetchData() {
         document.getElementById("tabCont").innerHTML = "<h4>Ladataan...</h4>";
         let x = `<table
-              class="w3-table w3-bordered w3-responsive"
+              class="w3-table-all w3-card-4 w3-hoverable"
               style="width: 100%"
             ><thead>
-              <tr>
-                <th>Avaatar</th>
-                <th>Nimi</th>
-                <th>Tehtävä</th>
-                <th>Sähköposti</th>
-                <th>Puhelin</th>
+              <tr class="w3-light-grey">
+                <th class="w3-center">Avaatar</th>
+                <th class="w3-center">Nimi</th>
+                <th class="w3-center">Tehtävä</th>
+                <th class="w3-center">Sähköposti</th>
+                <th class="w3-center">Puhelin</th>
               </tr></thead><tbody>`;
         // Fetch data from the API
         try {
