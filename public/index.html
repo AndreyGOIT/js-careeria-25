@@ -28,7 +28,7 @@
           class="w3-row w3-padding w3-blue-grey top-nav hidden"
           style="display: flex; justify-content: center; align-items: center"
         >
-          <div class="w3-col s1">
+          <div class="w3-col s1 w3-center">
             <a href="index.html" class="w3-block">
               <img
                 src="images/Logo_WebWorks_Studio.png"
@@ -61,7 +61,7 @@
               <p class="nav-text">YHTEYSTIEDOT</p>
             </a>
           </div>
-          <div class="w3-col s3">
+          <div class="w3-col s3 w3-center">
             <button onclick="logOut()">LOGOUT</button>
           </div>
         </div>
@@ -303,7 +303,7 @@
       async function fetchData() {
         document.getElementById("tabCont").innerHTML = "<h4>Ladataan...</h4>";
         let x = `<table
-              class="w3-table-all w3-card-4 w3-hoverable"
+              class="w3-table-all w3-card-4 w3-hoverable w3-responsive"
               style="width: 100%"
             ><thead>
               <tr class="w3-light-grey">
