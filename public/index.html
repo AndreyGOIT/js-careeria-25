@@ -61,6 +61,9 @@
               <p class="nav-text">YHTEYSTIEDOT</p>
             </a>
           </div>
+          <div class="w3-col s3">
+            <button onclick="logOut()">LOGOUT</button>
+          </div>
         </div>
       </nav>
     </header>
@@ -240,6 +243,19 @@
       </div>
     </footer>
     <script>
+      const savedPin = localStorage.getItem("pinEntered");
+      if (savedPin) {
+        // Show hidden elements and hide the PIN input field
+        showElements();
+      }
+
+      //------------log out----------------------
+      function logOut() {
+        localStorage.clear();
+        window.location.reload();
+        // Hide hidden elements and show the PIN input field
+      }
+
       //------------pin tarkistus----------------------
       async function checkPin() {
         const pin = document.getElementById("pin").value;
@@ -250,13 +266,9 @@
           const correctPin = data.pin;
           
           if (pin === correctPin) {
-            localStorage.setItem("pinEntered: ", pin);
+            localStorage.setItem("pinEntered", pin);
             // Show hidden elements and hide the PIN input field
-            const hiddenElements = document.querySelectorAll(".hidden");
-            hiddenElements.forEach((element) => {
-              element.style.visibility = "visible";
-            });
-            document.getElementById("pin-div").style.visibility = "hidden";
+            showElements();
           } 
           else {
             alert("Väärä PIN-koodi!");
@@ -265,8 +277,16 @@
           console.error("Virhe PIN-tarkistuksessa:", error);
           alert("Virhe PIN-tarkistuksessa. Ota yhteyttä ylläpitoon.");
         }
-
       }
+      //------------show elements----------------------
+      function showElements() {
+        // Show the hidden elements
+        const hiddenElements = document.querySelectorAll(".hidden");
+        hiddenElements.forEach((element) => {
+            element.style.visibility = "visible";
+        });
+        document.getElementById("pin-div").style.visibility = "hidden";
+      }  
 
       // Fetch data from the API and display it in the tab container
       async function fetchData() {
