@@ -30,7 +30,8 @@ function logOut() {
 async function checkPin() {
   const pin = document.getElementById("pin").value;
   try {
-    const response = await fetch("http://localhost:3000/api/getpin");
+    // const response = await fetch("http://localhost:3000/api/getpin");
+    const response = await fetch("http://172.20.10.14:3000/api/getpin");
     const data = await response.json();
     const correctPin = data.pin;
 
