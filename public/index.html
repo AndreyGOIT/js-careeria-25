@@ -130,17 +130,23 @@
           <div class="w3-container w3-padding-24 w3-center hidden">
             <h2>Yrityksen Henkilöt</h2>
             <div id="tabCont" class="w3-card-4" style="display: inline-block; width: 100%; max-width: 1024px"></div>
-            <!-- <aside>
-              <figure>
-                <img
-                  src="images/kartta.png"
-                  alt="Yrituksen sijainnin kartta"
-                  class="kartta-kuva"
-                />
-                <figcaption>WebWorks Oy:n kotikaupunki</figcaption>
-              </figure>
-            </aside> -->
           </div>
+
+<!----------------------------------CHAT--------------------------->
+          <!-- Floating button  -->
+          <div div id="chat-button">💬</div>
+
+          <!-- Modal chat window -->
+          <div id="chat-modal">
+              <div id="chat-header">
+                  <span>Support chat</span>
+                  <button id="close-chat">&times;</button>
+              </div>
+              <div id="chat-content"></div>
+              <input type="text" id="chat-input" placeholder="Write a message...">
+              <button id="send-message">Send</button>
+          </div>
+<!----------------------------------CHAT--------------------------->
         </section>
       </section>
     </main>
@@ -245,6 +251,8 @@
         </p>
       </div>
     </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

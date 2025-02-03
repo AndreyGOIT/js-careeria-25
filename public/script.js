@@ -2,7 +2,10 @@
 const savedPin = localStorage.getItem("pinEntered");
 if (savedPin) {
   // Show hidden elements and hide the PIN input field
-  if (document.getElementById("pin-div") || document.getElementById("footer-main")) {
+  if (
+    document.getElementById("pin-div") ||
+    document.getElementById("footer-main")
+  ) {
     showElements();
   }
 }
@@ -31,12 +34,14 @@ async function checkPin() {
       setTimeout(() => {
         document.getElementById("welcome-message").style.visibility = "hidden";
         // Show hidden elements and hide the PIN input field
-        if (document.getElementById("pin-div") || document.getElementById("footer-main")) {
+        if (
+          document.getElementById("pin-div") ||
+          document.getElementById("footer-main")
+        ) {
           showElements();
         }
       }, 3000);
-    } 
-    else {
+    } else {
       alert("Väärä PIN-koodi!");
     }
   } catch (error) {
@@ -54,21 +59,21 @@ function showElements() {
       element.style.visibility = "visible";
     });
   } else {
-    console.warn('Нет элементов с классом ".hidden"');
+    console.warn('ei ole elementtejä joilla on luokka ".hidden"');
   }
   // Hide the PIN input field
   const pinDiv = document.getElementById("pin-div");
   if (pinDiv) {
     pinDiv.style.display = "none";
   } else {
-    console.warn('Элемент "pin-div" не найден');
+    console.warn('Elementti "pin-div" ei löydy');
   }
   // document.getElementsByTagName("footer")[0].style.display = "block";
   const footer = document.getElementById("footer-main");
   if (footer) {
     footer.style.display = "block";
   } else {
-    console.warn('Элемент "footer-main" не найден');
+    console.warn('Elementti "footer-main" ei löydy');
   }
 }
 
@@ -92,7 +97,8 @@ async function fetchData() {
 
     const team = data.team;
 
-    x += team.map(
+    x += team
+      .map(
         (member) => `
               <tr>
                 <td><img src="${member.avatar}" alt="Avatar" class="w3-image w3-circle" style="width: 50px"></td>
@@ -106,7 +112,7 @@ async function fetchData() {
 
     x += "</tbody></table>";
     document.getElementById("tabCont").innerHTML = x;
-} catch (error) {
+  } catch (error) {
     //virhetilanteessa näytetään virheilmoitus
     console.error("Error fetching data:", error);
   }
@@ -118,3 +124,52 @@ if (document.getElementById("tabCont")) {
     fetchData();
   });
 }
+
+//------------Socket.IO client (Chat)----------------------
+const socket = io();
+
+// Modaaliikkunan avaaminen/sulkeminen
+const chatButton = document.getElementById("chat-button");
+const chatModal = document.getElementById("chat-modal");
+const closeChat = document.getElementById("close-chat");
+
+chatButton.addEventListener("click", () => {
+  chatModal.style.display = "block";
+});
+
+closeChat.addEventListener("click", () => {
+  chatModal.style.display = "none";
+});
+// Viestin lähetyskäsittelijä
+document.getElementById("send-message").addEventListener("click", function () {
+  const messageInput = document.getElementById("chat-input");
+  const text = messageInput.value.trim();
+
+  if (text) {
+    addMessage(`Вы: ${text}`); // Paikallinen lähtö
+    socket.emit("message", text); // Lähetetään palvelimelle
+    messageInput.value = ""; // Syöttökentän tyhjennys
+  }
+});
+
+// Käsittelijä viestin vastaanottamiseen palvelimelta
+if (!window.socketInitialized) {
+  window.socketInitialized = true;
+  socket.off("message"); // Poistaa edellisen käsittelijän ennen uuden lisäämistä
+
+  socket.on("message", (data) => {
+    // Tarkista lähettäjä, jotta voit välttää oman viestisi kopioimisen
+    if (data.sender !== socket.id) {
+      addMessage(`Собеседник: ${data.text}`);
+    }
+  });
+}
+
+// Toiminto viestien lisäämiseksi chattiin
+function addMessage(message) {
+  const chatBox = document.getElementById("chat-content");
+  const newMessage = document.createElement("p");
+  newMessage.textContent = message;
+  chatBox.appendChild(newMessage);
+}
+//------------Socket.IO client (Chat)----------------------

@@ -1,17 +1,37 @@
+// BACK END
 const express = require('express');
 const cors = require('cors');
 const employees = require('./data/employees.json');
 const fs = require('fs').promises;
 
+const http = require('http');
+const { Server } = require('socket.io');
+
 const app = express();
 app.use(cors());
 
-//--staattinen web palvelin-------- 
+const server = http.createServer(app);
+const io = new Server(server);
+
+
+//-----staattinen web palvelin-------- 
 const path = require('path');
 const htmlPath = path.join(path.join(__dirname, '/public'));
 app.use(express.static(htmlPath));
 //-------------------------------------
 
+//-----socket.io-----
+io.on('connection', (socket) => {
+    console.log('Käyttäjä yhdistetty:', socket.id);
+
+    socket.on("message", (text) => {
+        io.emit("message", { text, sender: socket.id }); // Postitus kaikille asiakkaille
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Käyttäjä on katkaissut yhteyden');
+    });
+});
 //------endpoints-----
 app.get('/', (req, res) => {
     res.sendFile(path.join(htmlPath, 'index.html'));
@@ -33,8 +53,7 @@ app.get('/hakukoneoptimointi', (req, res) => {
 });
 //----------------------------------------
 
-
-//--REST API palvelin-----
+//------REST API palvelin-----
 app.get('/api/employees', (req, res) => {
     res.send(employees);
 });
@@ -46,13 +65,13 @@ app.get('/api/getpin', async (req, res) => {
         res.json({ pin: savedPin.trim() });
     } catch (error) {
         console.error('Error reading pin from file:', error);
-        res.status(500).json({ error: 'Error reading pin from file' }); // Ошибку тоже в JSON
+        res.status(500).json({ error: 'Error reading pin from file' }); // Virhe on myös JSONissa
     }
 });
 //-----------------------------------------
 
-//palvelimen käynnistys
+//------palvelimen käynnistys-----
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);    
 });
