@@ -2,14 +2,15 @@
 const savedPin = localStorage.getItem("pinEntered");
 if (savedPin) {
   // Show hidden elements and hide the PIN input field
-  showElements();
+  if (document.getElementById("pin-div") || document.getElementById("footer-main")) {
+    showElements();
+  }
 }
 
 //--------------log out----------------------
 function logOut() {
   localStorage.clear();
   // Hide hidden elements and show the PIN input field
-  // window.location.reload();
   window.location.href = "/"; //Ohjaa etusivulle
 }
 
@@ -26,11 +27,13 @@ async function checkPin() {
       // Show the welcome message
       document.getElementById("welcome-message").style.visibility = "visible";
       document.getElementById("input-label").style.display = "none";
-      // Hide the welcome message after 4 seconds
+      // Hide the welcome message after 3 seconds
       setTimeout(() => {
         document.getElementById("welcome-message").style.visibility = "hidden";
         // Show hidden elements and hide the PIN input field
-        showElements();
+        if (document.getElementById("pin-div") || document.getElementById("footer-main")) {
+          showElements();
+        }
       }, 3000);
     } 
     else {
@@ -41,20 +44,35 @@ async function checkPin() {
     alert("Virhe PIN-tarkistuksessa. Ota yhteyttä ylläpitoon.");
   }
 }
+
 //------------show elements----------------------
 function showElements() {
   // Show the hidden elements
   const hiddenElements = document.querySelectorAll(".hidden");
-  hiddenElements.forEach((element) => {
-    element.style.visibility = "visible";
-  });
+  if (hiddenElements.length > 0) {
+    hiddenElements.forEach((element) => {
+      element.style.visibility = "visible";
+    });
+  } else {
+    console.warn('Нет элементов с классом ".hidden"');
+  }
   // Hide the PIN input field
-  document.getElementById("pin-div").style.display = "none";
+  const pinDiv = document.getElementById("pin-div");
+  if (pinDiv) {
+    pinDiv.style.display = "none";
+  } else {
+    console.warn('Элемент "pin-div" не найден');
+  }
   // document.getElementsByTagName("footer")[0].style.display = "block";
-  document.getElementById("footer-main").style.display = "block";
+  const footer = document.getElementById("footer-main");
+  if (footer) {
+    footer.style.display = "block";
+  } else {
+    console.warn('Элемент "footer-main" не найден');
+  }
 }
 
-// Fetch data from the API and display it in the tab container
+//---Fetch data from the API and display it in the tab container----
 async function fetchData() {
   document.getElementById("tabCont").innerHTML = "<h4>Ladataan...</h4>";
   let x = `<table class="w3-table-all w3-hoverable">
@@ -93,4 +111,10 @@ async function fetchData() {
     console.error("Error fetching data:", error);
   }
 }
-fetchData();
+
+// Fetch data when the page is loaded
+if (document.getElementById("tabCont")) {
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchData();
+  });
+}

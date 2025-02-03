@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(htmlPath, 'index.html'));
 });
 app.get('/palvelut', (req, res) => {
-    res.sendFile(path.join(htmlPath, 'palvelut.html'));
+    res.sendFile(path.join(htmlPath, '/palvelut.html'));
 });
 app.get('/yhteystiedot', (req, res) => {
     res.sendFile(path.join(htmlPath, 'yhteystiedot.html'));

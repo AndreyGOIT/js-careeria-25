@@ -135,7 +135,7 @@ th {
   padding: 5px 10px;
   cursor: pointer;
 }
-
+/*-------------suuri ruutu-------------*/
 @media (max-width: 1024px) {
   h1 {
     font-size: 2.2rem; /* Vähenee suhteessa */
@@ -172,7 +172,7 @@ th {
     font-size: 1.7rem;
   }
 }
-
+/*-----------tabletti-----------------*/
 @media (max-width: 768px) {
   h1,
   h3 {
@@ -213,6 +213,7 @@ th {
     font-size: 1.5rem;
   }
 }
+/*---------------puhelin---------------*/
   @media (max-width: 480px) {
     h1,
     h3 {
