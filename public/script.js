@@ -1,3 +1,12 @@
+//--------------check pin-----------------
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("pin").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+          checkPin(); // Вызываем функцию проверки PIN-кода
+      }
+  });
+});
+
 //------------save pin----------------------
 const savedPin = localStorage.getItem("pinEntered");
 if (savedPin) {
@@ -43,6 +52,7 @@ async function checkPin() {
       }, 3000);
     } else {
       alert("Väärä PIN-koodi!");
+      document.getElementById("pin").value = ""; // Tyhjennä PIN-kenttä
     }
   } catch (error) {
     console.error("Virhe PIN-tarkistuksessa:", error);
@@ -132,25 +142,43 @@ const socket = io();
 const chatButton = document.getElementById("chat-button");
 const chatModal = document.getElementById("chat-modal");
 const closeChat = document.getElementById("close-chat");
-
+let user = "";
+// Socket.IO-yhteyden muodostus
 chatButton.addEventListener("click", () => {
+  user = window.prompt("Kirjoita nimesi:");
+  
   chatModal.style.display = "block";
+  // socket.emit("message", user + " entered the chat");
+  socket.emit("join", user); // Отправляем серверу событие входа в чат
 });
 
 closeChat.addEventListener("click", () => {
+  // socket.emit("message", user + " left the chat");
+  socket.emit("leave", user); // Отправляем серверу событие выхода из чата
+  user = "";
   chatModal.style.display = "none";
 });
 // Viestin lähetyskäsittelijä
-document.getElementById("send-message").addEventListener("click", function () {
+document.getElementById("send-message").addEventListener("click", sendMessage);
+
+// Отправка сообщений по клавише "Enter"
+document.getElementById("chat-input").addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Предотвращаем перенос строки
+    sendMessage();
+  }
+});
+  
+function sendMessage() {
   const messageInput = document.getElementById("chat-input");
   const text = messageInput.value.trim();
 
   if (text) {
-    addMessage(`Вы: ${text}`); // Paikallinen lähtö
-    socket.emit("message", text); // Lähetetään palvelimelle
+    // addMessage(`${user}: ${text}`); // Paikallinen lähtö
+    socket.emit("message", { sender: user, text }); // Lähetetään palvelimelle
     messageInput.value = ""; // Syöttökentän tyhjennys
   }
-});
+};
 
 // Käsittelijä viestin vastaanottamiseen palvelimelta
 if (!window.socketInitialized) {
@@ -158,10 +186,20 @@ if (!window.socketInitialized) {
   socket.off("message"); // Poistaa edellisen käsittelijän ennen uuden lisäämistä
 
   socket.on("message", (data) => {
-    // Tarkista lähettäjä, jotta voit välttää oman viestisi kopioimisen
-    if (data.sender !== socket.id) {
-      addMessage(`Собеседник: ${data.text}`);
+    if (data.sender !== user) {
+      addMessage(`${data.sender}: ${data.text}`); // Добавляем только чужие сообщения
+    } else {
+      addMessage(`You: ${data.text}`); // Для отправителя показываем "You"
     }
+  });
+
+  // Обрабатываем вход/выход пользователей
+  socket.on("join", (name) => {
+    addMessage(`🔵 ${name} joined the chat`);
+  });
+
+  socket.on("leave", (name) => {
+    addMessage(`🔴 ${name} left the chat`);
   });
 }
 
@@ -171,5 +209,6 @@ function addMessage(message) {
   const newMessage = document.createElement("p");
   newMessage.textContent = message;
   chatBox.appendChild(newMessage);
+  chatBox.scrollTop = chatBox.scrollHeight; // Asettaa viestin viimeisimmäksi
 }
 //------------Socket.IO client (Chat)----------------------

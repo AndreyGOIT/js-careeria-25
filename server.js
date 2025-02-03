@@ -24,13 +24,33 @@ app.use(express.static(htmlPath));
 io.on('connection', (socket) => {
     console.log('Käyttäjä yhdistetty:', socket.id);
 
-    socket.on("message", (text) => {
-        io.emit("message", { text, sender: socket.id }); // Postitus kaikille asiakkaille
-    });
+    // Обрабатываем вход в чат
+  socket.on("join", (name) => {
+    socket.username = name; // Сохраняем имя пользователя
+    io.emit("join", name); // Оповещаем всех пользователей
+  });
 
-    socket.on('disconnect', () => {
-        console.log('Käyttäjä on katkaissut yhteyden');
-    });
+  // Обрабатываем отправку сообщений
+  socket.on("message", (data) => {
+    io.emit("message", { sender: socket.username, text: data.text });
+  });
+
+  // Обрабатываем выход из чата
+  socket.on("leave", (name) => {
+    io.emit("leave", name);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("A user disconnected");
+  });
+
+    // socket.on("message", (text) => {
+    //     io.emit("message", { text, sender: socket.id }); // Postitus kaikille asiakkaille
+    // });
+
+    // socket.on('disconnect', () => {
+    //     console.log('Käyttäjä on katkaissut yhteyden');
+    // });
 });
 //------endpoints-----
 app.get('/', (req, res) => {

@@ -38,10 +38,7 @@
             </a>
           </div>
           <div class="w3-col s2">
-            <a
-              href="/"
-              class="w3-button w3-block w3-blue-grey nav-link active"
-            >
+            <a href="/" class="w3-button w3-block w3-blue-grey nav-link active">
               <p class="nav-text">HOME</p>
             </a>
           </div>
@@ -84,15 +81,15 @@
         </div>
       </section>
 
-      <section class="w3-sand w3-grayscale ">
+      <section class="w3-sand w3-grayscale">
         <!---- Pin input block -->
-          <div id="pin-div" class="w3-center w3-padding-24">
-            <input id="pin" placeholder="pin code" type="password"/>
-            <button class="w3-blue-grey" onclick="checkPin()">LOGIN</button>
-            <h5 id="input-label">Please enter your PIN to access</h5>
-            <h4 id="welcome-message">Welcome and have a nice day!</h4>
-          </div>
-        
+        <div id="pin-div" class="w3-center w3-padding-24">
+          <input id="pin" placeholder="pin code" type="password" />
+          <button class="w3-blue-grey" onclick="checkPin()">LOGIN</button>
+          <h5 id="input-label">Please enter your PIN to access</h5>
+          <h4 id="welcome-message">Welcome and have a nice day!</h4>
+        </div>
+
         <!-- About Container -->
         <section class="w3-container w3-row w3-padding-24 about hidden">
           <div class="w3-col l6 m6 s12 w3-padding img-width">
@@ -103,12 +100,15 @@
             />
           </div>
           <div class="w3-col l6 m6 s12 w3-padding">
-            <h5 class="w3-center  about-title">
+            <h5 class="w3-center about-title">
               <span class="w3-tag w3-wide">ABOUT WebWorks Studio</span>
             </h5>
             <p class="article">
-              WebWorks Studio on nykyaikainen ohjelmistokehityksen yritys, joka keskittyy täyden palvelun verkkosivustojen ja sovellusten
-              suunnitteluun ja toteutukseen. Tarjoamme räätälöityjä ratkaisuja, jotka vastaavat asiakkaidemme tarpeita ja auttavat heidän liiketoimintaansa kasvamaan digitaalisessa ympäristössä.
+              WebWorks Studio on nykyaikainen ohjelmistokehityksen yritys, joka
+              keskittyy täyden palvelun verkkosivustojen ja sovellusten
+              suunnitteluun ja toteutukseen. Tarjoamme räätälöityjä ratkaisuja,
+              jotka vastaavat asiakkaidemme tarpeita ja auttavat heidän
+              liiketoimintaansa kasvamaan digitaalisessa ympäristössä.
             </p>
             <p class="article">
               Olemme ylpeitä siitä, että yhdistämme luovuuden, teknisen
@@ -117,9 +117,11 @@
               kyseessä yrityksen kotisivu, verkkokauppa tai räätälöity sovellus,
               tiimimme huolehtii koko kehitysprosessista alusta loppuun.
             </p>
-            <p class="article">Laita ideasi käytäntöön WebWorks Studion kanssa!</p>
+            <p class="article">
+              Laita ideasi käytäntöön WebWorks Studion kanssa!
+            </p>
             <div class="w3-panel w3-leftbar w3-light-grey w3-center">
-              <p class=" w3-wide slogan">
+              <p class="w3-wide slogan">
                 <strong><i>“Teemme digitaalisen helpoksi”</i></strong>
               </p>
             </div>
@@ -129,29 +131,39 @@
         <section>
           <div class="w3-container w3-padding-24 w3-center hidden">
             <h2>Yrityksen Henkilöt</h2>
-            <div id="tabCont" class="w3-card-4" style="display: inline-block; width: 100%; max-width: 1024px"></div>
+            <div
+              id="tabCont"
+              class="w3-card-4"
+              style="display: inline-block; width: 100%; max-width: 1024px"
+            ></div>
           </div>
 
 <!----------------------------------CHAT--------------------------->
-          <!-- Floating button  -->
-          <div div id="chat-button">💬</div>
+          <div class="hidden">
+            <!-- Floating button  -->
+            <div div id="chat-button">💬</div>
 
-          <!-- Modal chat window -->
-          <div id="chat-modal">
+            <!-- Modal chat window -->
+            <div id="chat-modal">
               <div id="chat-header">
-                  <span>Support chat</span>
-                  <button id="close-chat">&times;</button>
+                <span>Support chat</span>
+                <button id="close-chat">&times;</button>
               </div>
               <div id="chat-content"></div>
-              <input type="text" id="chat-input" placeholder="Write a message...">
+              <input
+                type="text"
+                id="chat-input"
+                placeholder="Write a message..."
+              />
               <button id="send-message">Send</button>
+            </div>
           </div>
 <!----------------------------------CHAT--------------------------->
         </section>
       </section>
     </main>
     <!-- Footer / Alatunniste, jossa on yhteystiedot, navigointi ja sosiaaliset verkostot -->
-    <footer id="footer-main" class="w3-container w3-padding-24 w3-blue-grey ">
+    <footer id="footer-main" class="w3-container w3-padding-24 w3-blue-grey">
       <div class="w3-row-padding">
         <!-- Koodilohko yhteystiedoilla -->
         <div class="w3-third">
