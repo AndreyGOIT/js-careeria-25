@@ -30,7 +30,8 @@ function logOut() {
 async function checkPin() {
   const pin = document.getElementById("pin").value;
   try {
-    const response = await fetch("http://localhost:3000/api/getpin");
+    const response = await fetch("https://webworksstudio.onrender.com/api/getpin");
+    // const response = await fetch("http://localhost:3000/api/getpin");
     // const response = await fetch("http://172.20.10.14:3000/api/getpin");
     const data = await response.json();
     const correctPin = data.pin;
@@ -103,7 +104,8 @@ async function fetchData() {
               </thead><tbody>`;
   // Fetch data from the API
   try {
-    const response = await fetch("http://localhost:3000/api/employees");
+    const response = await fetch("https://webworksstudio.onrender.com/api/employees");
+    // const response = await fetch("http://localhost:3000/api/employees");
     const data = await response.json();
 
     const team = data.team;
@@ -259,9 +261,9 @@ function closePrompt() {
 function submitPrompt() {
   let userInput = document.getElementById("promptInput").value;
   if (userInput.trim() !== "") {
-    alert("Вы ввели: " + userInput);
+    // alert("You entered: " + userInput);
     closePrompt();
   } else {
-    alert("Введите что-то!");
+    alert("Enter something!");
   }
 }
