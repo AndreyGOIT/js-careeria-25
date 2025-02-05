@@ -119,6 +119,35 @@ th {
 #tabCont {
   overflow-x: auto;
 }
+/*-------------pin styles-------------*/
+.pin-container {
+  display: flex;
+  gap: 10px; /* Отступ между инпутом и кнопкой */
+  justify-content: center;
+  align-items: center;
+}
+
+.pin-input {
+  
+  max-width: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pin-button {
+  padding: 8px 15px;
+  background-color: #607d8b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pin-button:hover {
+  background-color: #546e7a;
+}
+/*-------------end pin styles-------------*/
 .some {
   margin-top: 55px;
   margin-bottom: 10px;
@@ -331,3 +360,58 @@ th {
   border: none;
   cursor: pointer;
 }
+
+/*----- Стилизация модального окна с именем --------*/
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#promptInput {
+  width: 80%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #e0e0e0; /* Светлый фон */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), 
+              -4px -4px 8px rgba(255, 255, 255, 0.7);
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* При фокусе эффект усиливается */
+#promptInput:focus {
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.25), 
+              -6px -6px 12px rgba(255, 255, 255, 0.9);
+  background: #f0f0f0;
+}
+
+.promtpBtn {
+  width: 80px;
+  background: #5ca3ef;
+  border: #5ca3ef;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+/*----- конец стилизации модального окна с именем --------*/

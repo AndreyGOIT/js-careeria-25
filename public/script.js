@@ -30,8 +30,8 @@ function logOut() {
 async function checkPin() {
   const pin = document.getElementById("pin").value;
   try {
-    // const response = await fetch("http://localhost:3000/api/getpin");
-    const response = await fetch("http://172.20.10.14:3000/api/getpin");
+    const response = await fetch("http://localhost:3000/api/getpin");
+    // const response = await fetch("http://172.20.10.14:3000/api/getpin");
     const data = await response.json();
     const correctPin = data.pin;
 
@@ -144,13 +144,46 @@ const chatButton = document.getElementById("chat-button");
 const chatModal = document.getElementById("chat-modal");
 const closeChat = document.getElementById("close-chat");
 let user = "";
+
+// Modaaliikkuna chatkäyttäjän nimen kysymiseksi
+function askForUsername() {
+  return new Promise((resolve, reject) => {
+    const modal = document.getElementById("customPrompt");
+    modal.style.display = "flex";
+
+    window.resolvePrompt = function () {
+      let userInput = document.getElementById("promptInput").value.trim();
+      if (userInput) {
+        modal.style.display = "none";
+        resolve(userInput);
+      } else {
+        alert("Enter your name!");
+      }
+    };
+
+    window.rejectPrompt = function () {
+      modal.style.display = "none";
+      reject("The user cancelled the name entry.");
+    };
+  });
+}
+
+async function startChat() {
+  try {
+    // Call the name request before starting the chat
+    user = await askForUsername();
+    
+    // 👇 Here we continue executing the code after entering the name
+    chatModal.style.display = "block";
+    socket.emit("join", user); // Sending a chat entry event to the server
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // Socket.IO-yhteyden muodostus
 chatButton.addEventListener("click", () => {
-  user = window.prompt("Kirjoita nimesi:");
-  
-  chatModal.style.display = "block";
-  // socket.emit("message", user + " entered the chat");
-  socket.emit("join", user); // Отправляем серверу событие входа в чат
+  startChat();
 });
 
 closeChat.addEventListener("click", () => {
@@ -213,3 +246,22 @@ function addMessage(message) {
   chatBox.scrollTop = chatBox.scrollHeight; // Asettaa viestin viimeisimmäksi
 }
 //------------Socket.IO client (Chat)----------------------
+
+//------------Custom prompt----------------------
+function openPrompt() {
+  document.getElementById("customPrompt").style.display = "flex";
+}
+
+function closePrompt() {
+  document.getElementById("customPrompt").style.display = "none";
+}
+
+function submitPrompt() {
+  let userInput = document.getElementById("promptInput").value;
+  if (userInput.trim() !== "") {
+    alert("Вы ввели: " + userInput);
+    closePrompt();
+  } else {
+    alert("Введите что-то!");
+  }
+}

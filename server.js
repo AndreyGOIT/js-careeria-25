@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log("A user disconnected");
+    console.log("Käyttäjä katkaisi yhteyden");
   });
 
     // socket.on("message", (text) => {

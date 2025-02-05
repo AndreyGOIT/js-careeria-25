@@ -84,8 +84,11 @@
       <section class="w3-sand w3-grayscale">
         <!---- Pin input block -->
         <div id="pin-div" class="w3-center w3-padding-24">
-          <input id="pin" placeholder="pin code" type="password" />
-          <button class="w3-blue-grey" onclick="checkPin()">LOGIN</button>
+          <div class="pin-container">
+            <input class="pin-input" id="pin" placeholder="pin code" type="password" />
+            <button class="pin-button" onclick="checkPin()">LOGIN</button>
+
+          </div>
           <h5 id="input-label">Please enter your PIN to access</h5>
           <h4 id="welcome-message">Welcome and have a nice day!</h4>
         </div>
@@ -142,6 +145,16 @@
           <div class="hidden">
             <!-- Floating button  -->
             <div div id="chat-button">💬</div>
+
+            <!-- Modal name window -->
+            <div id="customPrompt" class="modal">
+              <div class="modal-content">
+                <h2>Enter your name for chat</h2>
+                <input type="text" id="promptInput" placeholder="your name">
+                <button class="promtpBtn" onclick="resolvePrompt()">OK</button>
+                <button class="promtpBtn" onclick="rejectPrompt()">Cancel</button>
+              </div>
+            </div>
 
             <!-- Modal chat window -->
             <div id="chat-modal">
