@@ -14,13 +14,13 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 
-//-----staattinen web palvelin-------- 
+//-------staattinen web palvelin-------- 
 const path = require('path');
 const htmlPath = path.join(path.join(__dirname, '/public'));
 app.use(express.static(htmlPath));
 //-------------------------------------
 
-//-----socket.io-----
+//--------------socket.io--------------
 io.on('connection', (socket) => {
     console.log('Käyttäjä yhdistetty:', socket.id);
 
@@ -44,6 +44,8 @@ io.on('connection', (socket) => {
     console.log("Käyttäjä katkaisi yhteyden");
   });
 });
+//--------------------------------------
+
 //---------endpoints----------
 app.get('/', (req, res) => {
     res.sendFile(path.join(htmlPath, 'index.html'));
@@ -88,5 +90,6 @@ server.listen(PORT, "0.0.0.0", () => {
   console.log(`Example app listening on port ${PORT}!`);    
 });
 //-----------------------------------------
+
 //server was deployed on render.com
 //https://webworksstudio.onrender.com

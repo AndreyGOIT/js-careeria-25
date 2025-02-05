@@ -1,4 +1,4 @@
-//--------------check pin-----------------
+//----------------check pin--------------------
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("pin").addEventListener("keydown", function(event) {
       if (event.key === "Enter") {
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-//------------save pin----------------------
+//----------------save pin----------------------
 const savedPin = localStorage.getItem("pinEntered");
 if (savedPin) {
   // Show hidden elements and hide the PIN input field
@@ -19,14 +19,14 @@ if (savedPin) {
   }
 }
 
-//--------------log out----------------------
+//-----------------log out------------------------
 function logOut() {
   localStorage.clear();
   // Hide hidden elements and show the PIN input field
   window.location.href = "/"; //Ohjaa etusivulle
 }
 
-//------------pin tarkistus----------------------
+//--------------pin tarkistus----------------------
 async function checkPin() {
   const pin = document.getElementById("pin").value;
   try {
@@ -61,7 +61,7 @@ async function checkPin() {
   }
 }
 
-//------------show elements----------------------
+//------------------show elements----------------------
 function showElements() {
   // Show the hidden elements
   const hiddenElements = document.querySelectorAll(".hidden");
@@ -243,9 +243,9 @@ function addMessage(message) {
   chatBox.appendChild(newMessage);
   chatBox.scrollTop = chatBox.scrollHeight; // Asettaa viestin viimeisimmäksi
 }
-//------------Socket.IO client (Chat)----------------------
+//------------end Socket.IO client (Chat)----------------------
 
-//------------Custom prompt----------------------
+//--------------------Custom prompt----------------------------
 function openPrompt() {
   document.getElementById("customPrompt").style.display = "flex";
 }
