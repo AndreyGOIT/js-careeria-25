@@ -22,7 +22,7 @@ h2 {
 .bgimg {
   background-position: center;
   background-size: cover;
-  background-image: url("images/Toimisto_kuva.png");
+  background-image: url("../images/Toimisto_kuva.png");
   min-height: 75vh;
 }
 
