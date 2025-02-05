@@ -24,18 +24,18 @@ app.use(express.static(htmlPath));
 io.on('connection', (socket) => {
     console.log('Käyttäjä yhdistetty:', socket.id);
 
-    // Обрабатываем вход в чат
+    // Processing the entrance to the chat
   socket.on("join", (name) => {
-    socket.username = name; // Сохраняем имя пользователя
-    io.emit("join", name); // Оповещаем всех пользователей
+    socket.username = name; // Save the username
+    io.emit("join", name); // We notify all users
   });
 
-  // Обрабатываем отправку сообщений
+  // Processing message sending
   socket.on("message", (data) => {
     io.emit("message", { sender: socket.username, text: data.text });
   });
 
-  // Обрабатываем выход из чата
+  // Handling exit from chat
   socket.on("leave", (name) => {
     io.emit("leave", name);
   });
@@ -43,16 +43,8 @@ io.on('connection', (socket) => {
   socket.on("disconnect", () => {
     console.log("Käyttäjä katkaisi yhteyden");
   });
-
-    // socket.on("message", (text) => {
-    //     io.emit("message", { text, sender: socket.id }); // Postitus kaikille asiakkaille
-    // });
-
-    // socket.on('disconnect', () => {
-    //     console.log('Käyttäjä on katkaissut yhteyden');
-    // });
 });
-//------endpoints-----
+//---------endpoints----------
 app.get('/', (req, res) => {
     res.sendFile(path.join(htmlPath, 'index.html'));
 });
@@ -73,7 +65,7 @@ app.get('/hakukoneoptimointi', (req, res) => {
 });
 //----------------------------------------
 
-//------REST API palvelin-----
+//------------REST API palvelin-----------
 app.get('/api/employees', (req, res) => {
     res.send(employees);
 });
@@ -90,8 +82,11 @@ app.get('/api/getpin', async (req, res) => {
 });
 //-----------------------------------------
 
-//------palvelimen käynnistys-----
+//----------palvelimen käynnistys----------
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`Example app listening on port ${PORT}!`);    
 });
+//-----------------------------------------
+//server was deployed on render.com
+//https://webworksstudio.onrender.com

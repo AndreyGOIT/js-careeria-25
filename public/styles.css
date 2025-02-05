@@ -122,13 +122,12 @@ th {
 /*-------------pin styles-------------*/
 .pin-container {
   display: flex;
-  gap: 10px; /* Отступ между инпутом и кнопкой */
+  gap: 10px; /* Tila tulon ja painikkeen välillä */
   justify-content: center;
   align-items: center;
 }
 
 .pin-input {
-  
   max-width: 100px;
   padding: 8px;
   border: 1px solid #ccc;
@@ -210,7 +209,6 @@ th {
   h2 {
     font-size: 1.3rem;
     margin-top: 0;
-    /*margin-bottom: 0;*/
   }
   p {
     font-size: 0.9rem; /* Pienempi tekstikoko pienille näytöille */
@@ -251,7 +249,6 @@ th {
     h2 {
       font-size: 1.1rem;
       margin-top: 0;
-      /*margin-bottom: 0;*/
     }
     li {
       font-size: 0.9rem; /* Pienempi tekstikoko pienille näytöille */
@@ -296,7 +293,7 @@ th {
   }
 
 /*---------------chat---------------*/
-/* Плавающая кнопка */
+/* Kelluva painike */
 #chat-button {
   position: fixed;
   bottom: 20px;
@@ -314,7 +311,7 @@ th {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Модальное окно */
+/* Modaalinen ikkuna */
 #chat-modal {
   display: none;
   position: fixed;
@@ -327,7 +324,7 @@ th {
   overflow: hidden;
 }
 
-/* Заголовок чата */
+/* Chatin otsikko */
 #chat-header {
   background: #007bff;
   color: white;
@@ -337,14 +334,14 @@ th {
   align-items: center;
 }
 
-/* Контент чата */
+/* Chatin sisältö */
 #chat-content {
   height: 200px;
   overflow-y: auto;
   padding: 10px;
 }
 
-/* Поле ввода */
+/* Syöttökenttä */
 #chat-input {
   width: 75%;
   padding: 5px;
@@ -352,7 +349,7 @@ th {
   border-top: 1px solid #ddd;
 }
 
-/* Кнопка отправки */
+/* Lähetä-painike */
 #send-message {
   width: 25%;
   background: #007bff;
@@ -361,9 +358,9 @@ th {
   cursor: pointer;
 }
 
-/*----- Стилизация модального окна с именем --------*/
+/*----- Modaalisen ikkunan (nimi) tyylittely --------*/
 .modal {
-  display: none; /* Скрыто по умолчанию */
+  display: none; /* Oletuksena piilotettu */
   position: fixed;
   left: 0;
   top: 0;
@@ -390,14 +387,14 @@ th {
   font-size: 16px;
   border: none;
   border-radius: 10px;
-  background: #e0e0e0; /* Светлый фон */
+  background: #e0e0e0; /* vaalea tausta */
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), 
               -4px -4px 8px rgba(255, 255, 255, 0.7);
   outline: none;
   transition: all 0.2s ease-in-out;
 }
 
-/* При фокусе эффект усиливается */
+/* Vaikutus tehostuu keskittyessä. */
 #promptInput:focus {
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.25), 
               -6px -6px 12px rgba(255, 255, 255, 0.9);
@@ -414,4 +411,4 @@ th {
   padding: 8px 12px;
   cursor: pointer;
 }
-/*----- конец стилизации модального окна с именем --------*/
+/*----- Modaalisen ikkunan (nimi) tyylittely loppuu --------*/

@@ -31,8 +31,7 @@ async function checkPin() {
   const pin = document.getElementById("pin").value;
   try {
     const response = await fetch("https://webworksstudio.onrender.com/api/getpin");
-    // const response = await fetch("http://localhost:3000/api/getpin");
-    // const response = await fetch("http://172.20.10.14:3000/api/getpin");
+    
     const data = await response.json();
     const correctPin = data.pin;
 
@@ -57,7 +56,7 @@ async function checkPin() {
       document.getElementById("pin").value = ""; // Tyhjennä PIN-kenttä
     }
   } catch (error) {
-    console.error("Virhe PIN-tarkistuksessa:", error);
+    //console.error("Virhe PIN-tarkistuksessa:", error);
     alert("Virhe PIN-tarkistuksessa. Ota yhteyttä ylläpitoon.");
   }
 }
@@ -80,7 +79,7 @@ function showElements() {
   } else {
     console.warn('Elementti "pin-div" ei löydy');
   }
-  // document.getElementsByTagName("footer")[0].style.display = "block";
+
   const footer = document.getElementById("footer-main");
   if (footer) {
     footer.style.display = "block";
@@ -105,9 +104,8 @@ async function fetchData() {
   // Fetch data from the API
   try {
     const response = await fetch("https://webworksstudio.onrender.com/api/employees");
-    // const response = await fetch("http://localhost:3000/api/employees");
-    const data = await response.json();
 
+    const data = await response.json();
     const team = data.team;
 
     x += team
@@ -189,18 +187,17 @@ chatButton.addEventListener("click", () => {
 });
 
 closeChat.addEventListener("click", () => {
-  // socket.emit("message", user + " left the chat");
-  socket.emit("leave", user); // Отправляем серверу событие выхода из чата
+  socket.emit("leave", user); // Sending a chat exit event to the server
   user = "";
   chatModal.style.display = "none";
 });
 // Viestin lähetyskäsittelijä
 document.getElementById("send-message").addEventListener("click", sendMessage);
 
-// Отправка сообщений по клавише "Enter"
+// Sending messages by pressing "Enter"
 document.getElementById("chat-input").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
-    event.preventDefault(); // Предотвращаем перенос строки
+    event.preventDefault(); // Preventing line breaks
     sendMessage();
   }
 });
@@ -210,7 +207,6 @@ function sendMessage() {
   const text = messageInput.value.trim();
 
   if (text) {
-    // addMessage(`${user}: ${text}`); // Paikallinen lähtö
     socket.emit("message", { sender: user, text }); // Lähetetään palvelimelle
     messageInput.value = ""; // Syöttökentän tyhjennys
   }
@@ -223,13 +219,13 @@ if (!window.socketInitialized) {
 
   socket.on("message", (data) => {
     if (data.sender !== user) {
-      addMessage(`${data.sender}: ${data.text}`); // Добавляем только чужие сообщения
+      addMessage(`${data.sender}: ${data.text}`); // Lisäämme vain muiden ihmisten viestejä
     } else {
-      addMessage(`You: ${data.text}`); // Для отправителя показываем "You"
+      addMessage(`You: ${data.text}`); // Näytämme lähettäjälle "You"
     }
   });
 
-  // Обрабатываем вход/выход пользователей
+  // Käsitellään käyttäjien sisään-/uloskirjautumisia
   socket.on("join", (name) => {
     addMessage(`🔵 ${name} joined the chat`);
   });
@@ -261,7 +257,6 @@ function closePrompt() {
 function submitPrompt() {
   let userInput = document.getElementById("promptInput").value;
   if (userInput.trim() !== "") {
-    // alert("You entered: " + userInput);
     closePrompt();
   } else {
     alert("Enter something!");
